@@ -1,0 +1,35 @@
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      padding: 24px; overflow-x: hidden; font-family: system-ui, -apple-system, sans-serif;
+      color: #34283f; background: linear-gradient(135deg, #fff1f4, #fff9ef 55%, #f5efff);
+    }
+    .heart-bg { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .floating-heart { position: absolute; bottom: -40px; opacity: .45; animation: floatUp linear forwards; }
+    @keyframes floatUp { to { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
+    .card {
+      position: relative; width: min(100%, 620px); padding: clamp(26px, 6vw, 48px);
+      text-align: center; background: rgba(255,255,255,.88); border: 1px solid #fff;
+      border-radius: 28px; box-shadow: 0 20px 60px rgba(151, 96, 125, .14);
+    }
+    .big-heart { font-size: 3rem; animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.13); } }
+    h1 { font-size: clamp(1.8rem, 6vw, 2.7rem); line-height: 1.12; margin: 12px 0; color: #392a50; }
+    .subtitle { color: #786a86; font-size: 1.05rem; line-height: 1.6; }
+    .buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 28px 0 20px; }
+    button { border: 0; border-radius: 14px; padding: 14px 25px; font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; transition: transform .18s, box-shadow .18s; }
+    button:hover { transform: translateY(-3px); box-shadow: 0 8px 18px #d9b9d755; }
+    button:focus-visible { outline: 3px solid #6650a4; outline-offset: 3px; }
+    .yes { color: white; background: linear-gradient(135deg, #f06e9b, #d95b98); }
+    .maybe { color: #67466d; background: #f3e8ff; }
+    .no { color: #67466d; background: #fff0f4; }
+    .message { display: none; margin-top: 24px; padding: 22px; border-radius: 20px; background: linear-gradient(135deg, #fff0f5, #f4efff); animation: appear .35s ease-out; }
+    .message.show { display: block; }
+    .message .emoji { font-size: 2.6rem; }
+    .message h2 { margin: 8px 0; font-size: 1.4rem; }
+    .message p { margin: 0; color: #786a86; line-height: 1.6; }
+    .again { margin-top: 16px; background: white; color: #67466d; border: 1px solid #ead9ef; padding: 10px 16px; font-size: .9rem; }
+    footer { color: #9a8ca4; font-size: .85rem; margin-top: 26px; }
+    @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 420px) { .buttons { flex-direction: column; } .buttons button { width: 100%; } }
